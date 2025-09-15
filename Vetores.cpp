@@ -46,16 +46,38 @@ int BuscaBinaria(int vetor[], int tamanho, int valor){
     return -1;
 }
 
-
-
-
-
-
-
+void removerElemento(int vetor[], int *tamanho, int valor) {
+    int posicao = BuscaBinaria(vetor, *tamanho, valor);
+    
+    if (posicao == -1) {
+        printf("elemento não encontrado");
+        return;
+    }
+    
+    for (int i = posicao; i < *tamanho - 1; i++) {
+        vetor[i] = vetor[i + 1];
+    }
+    (*tamanho)--;
+    printf("elemento removido\n");
+}
 
 
 
 int main(){
+    int vetor[MAX_VETOR], tamanho = 0, opcao;
+
+    do {
+        printf("digite o tamanho do vetor (3-50): ");
+        scanf("%d", &tamanho);
+
+        if (tamanho < 3 || tamanho > MAX_VETOR){
+            printf("tamanho invalido, tente novamente\n");
+        }
+    }while (tamanho < 3 || tamanho > MAX_VETOR);
+    
+    
+
+
 
     return 0;
 }
